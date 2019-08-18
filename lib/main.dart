@@ -34,7 +34,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'foo text',
+              'Marathi text',
             ),
             SizedBox(
               width: double.infinity,
@@ -58,7 +58,7 @@ class KeyboardListener extends StatefulWidget {
 class _RawKeyboardListenerState extends State<KeyboardListener> {
   TextEditingController _controller = new TextEditingController();
   FocusNode _textNode = new FocusNode();
-  StringBuffer output;
+  String text = "";
 
   @override
   initState() {
@@ -69,23 +69,20 @@ class _RawKeyboardListenerState extends State<KeyboardListener> {
     
     //print('Key: ${key.codePoint}');
     if (key.codePoint == 113){
-
-      //output.writeCharCode(2309);
-      output.write(String.fromCharCode(2309));
+      text += String.fromCharCode(2309);
+      
+    } else if (key.codePoint == 119){
+       text += String.fromCharCode(2310);
+    }else if (key.codePoint == 101){
+       text += String.fromCharCode(2311);
+    }else if (key.codePoint == 114){
+       text += String.fromCharCode(2312);
+    }else if (key.codePoint == 116){
+       text += String.fromCharCode(2313);
+    }else if (key.codePoint == 121){
+       text += String.fromCharCode(2314);
     }
-    // else if (key.codePoint == 119){
-    //   output.write(String.fromCharCode(2310));
-    // }else if (key.codePoint == 101){
-    //   output.write(String.fromCharCode(2311));
-    // }else if (key.codePoint == 114){
-    //   output.write(String.fromCharCode(2312));
-    // }else if (key.codePoint == 116){
-    //   output.write(String.fromCharCode(2313));
-    // }else if (key.codePoint == 121){
-    //   output.write(String.fromCharCode(2314));
-    // }
-    
-    _controller.text = output.toString();
+    _controller.text = text;
   }
 
   @override
@@ -96,7 +93,6 @@ class _RawKeyboardListenerState extends State<KeyboardListener> {
       child: TextField(
         controller: _controller,
       ),
- 
     );
   }
 }
